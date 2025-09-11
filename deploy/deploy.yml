@@ -1,0 +1,8 @@
+---
+- name: Example Playbook for Firebase Deployment
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print a debug message
+      debug:
+        msg: "Ansible is running in the CI pipeline!"
