@@ -1,34 +1,42 @@
-name: MiniFund
+name: Deploy Vite React to S3
 
 on:
   push:
     branches: ["main"]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout code
-      - name: Checkout repository
+      # 1) Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
+      # 2) Setup Node (Vite needs Node 18+)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
 
-      # 3️⃣ Install dependencies
+      # 3) Install deps
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Build the project
-      - name: Build Vite project
+      # 4) Build your Vite app
+      - name: Build
         run: npm run build
 
-      # 5️⃣ Configure AWS credentials (from GitHub Secrets)
+      # (Optional) Prove build exists
+      - name: List build output
+        run: ls -lah dist
+
+      # 5) Configure AWS (uses repo secrets)
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -36,8 +44,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # 6️⃣ Deploy to S3 (sync build output)
-      - name: Upload build to S3
-        run: aws s3 sync dist/ s3://$S3_BUCKET_NAME --delete
+      # 6) Deploy to S3 (sync dist/ → bucket)
+      - name: Upload to S3
+        run: |
+          aws s3 sync dist/ s3://$S3_BUCKET_NAME/ --delete \
+            --cache-control "public,max-age=31536000,immutable" \
+            --exclude index.html
+          # Ensure index.html isn’t cached aggressively (SPA updates instantly)
+          aws s3 cp dist/index.html s3://$S3_BUCKET_NAME/index.html \
+            --cache-control "no-cache"
         env:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+
+      # 7) (Optional) CloudFront cache bust (uncomment if using CF)
+      # - name: Invalidate CloudFront cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
+      #       --paths "/*"
+      #   env:
+      #     CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
