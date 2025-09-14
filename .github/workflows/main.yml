@@ -31,6 +31,8 @@ jobs:
       # 4) Build your Vite app
       - name: Build
         run: npm run build
+        env:
+          VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
 
       # (Optional) Prove build exists
       - name: List build output
