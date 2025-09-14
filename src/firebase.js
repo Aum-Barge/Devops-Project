@@ -4,13 +4,13 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBiq_0ZkNMiBtrrURND7ciDwDU4_IMIYTE",
-  authDomain: "crowdfunding-6f985.firebaseapp.com",
-  projectId: "crowdfunding-6f985",
-  storageBucket: "crowdfunding-6f985.appspot.com",
-  messagingSenderId: "799311147437",
-  appId: "1:799311147437:web:3efeb029318ce6ee747124",
-  measurementId: "G-Q7WXFT775C"
+  apiKey: "AIzaSyD10Mdb3B8yQ__3xLsNmSHJsrRDxYgn-rw",
+  authDomain: "crowdfund-d9292.firebaseapp.com",
+  projectId: "crowdfund-d9292",
+  storageBucket: "crowdfund-d9292.firebasestorage.app",
+  messagingSenderId: "95012184739",
+  appId: "1:95012184739:web:cbac3c6b86234fbf959516",
+  measurementId: "G-JEFYJLSSLX"
 };
 
 // Initialize Firebase
