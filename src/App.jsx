@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { SignIn, SignUp, useUser } from "@clerk/clerk-react";
 import Card from "./Card";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import CreateCampaign from "./CreateCampaign";
 import ExploreCampaigns from "./ExploreCampaigns";
 import DonatePage from "./DonatePage";
@@ -15,7 +16,7 @@ const ProtectedRoute = ({ children }) => {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+      <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200 to-base-300 text-base-content" data-theme="dark">
         <Navbar />
         <main className="container mx-auto px-4 py-8">
           <Routes>
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/donate/:id" element={<DonatePage />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );

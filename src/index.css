@@ -7,19 +7,23 @@
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-base-100 text-base-content;
+  }
 }
 
 @layer components {
   .btn {
-    transition: all 0.2s ease-in-out;
+    @apply transition-all duration-200 ease-in-out;
   }
 
   .card {
-    transition: transform 0.2s ease-in-out;
+    @apply transition-all duration-300 ease-in-out;
   }
 
   .card:hover {
-    transform: translateY(-4px);
+    @apply transform -translate-y-2 shadow-2xl;
   }
 
   .line-clamp-3 {
@@ -28,10 +32,26 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #06B6D4 100%);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
 }
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
   }
 }
