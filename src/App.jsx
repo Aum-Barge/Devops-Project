@@ -15,22 +15,26 @@ const ProtectedRoute = ({ children }) => {
 export default function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Card />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route
-          path="/create-campaign"
-          element={
-            <ProtectedRoute>
-              <CreateCampaign />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/explore" element={<ExploreCampaigns />} />
-        <Route path="/donate/:id" element={<DonatePage />} />
-      </Routes>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+        <Navbar />
+        <main className="container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Card />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route
+              path="/create-campaign"
+              element={
+                <ProtectedRoute>
+                  <CreateCampaign />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/explore" element={<ExploreCampaigns />} />
+            <Route path="/donate/:id" element={<DonatePage />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }
