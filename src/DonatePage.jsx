@@ -92,13 +92,6 @@ const DonatePage = () => {
           {/* Campaign Details */}
           <div className="space-y-6">
             <div className="card bg-base-100 shadow-xl">
-              <figure className="px-6 pt-6">
-                <img
-                  src={campaign.image || "https://via.placeholder.com/600x400"}
-                  alt={campaign.title}
-                  className="w-full h-64 object-cover rounded-lg"
-                />
-              </figure>
               <div className="card-body">
                 <h2 className="card-title text-2xl text-primary">About This Campaign</h2>
                 <p className="text-base-content/80 leading-relaxed">{campaign.description}</p>
@@ -169,12 +162,16 @@ const DonatePage = () => {
                       <p className="text-base-content/70">
                         Scan the QR code below with your UPI app to complete the donation of ₹{amount}
                       </p>
-                      <div className="bg-white p-4 rounded-lg inline-block">
-                        <img
-                          src={campaign.gpayQr}
-                          alt="GPay QR Code"
-                          className="w-48 h-48 object-contain"
-                        />
+                      <div className="bg-base-200 p-6 rounded-lg text-center">
+                        <div className="text-4xl mb-4">📱</div>
+                        <p className="text-lg font-semibold mb-2">Scan QR Code</p>
+                        <p className="text-sm text-base-content/70 mb-4">
+                          Use your UPI app to scan the QR code and donate ₹{amount}
+                        </p>
+                        <div className="bg-white p-4 rounded-lg border-2 border-dashed border-base-300">
+                          <div className="text-6xl">📷</div>
+                          <p className="text-xs text-base-content/50 mt-2">QR Code Placeholder</p>
+                        </div>
                       </div>
                       <div className="text-sm text-base-content/60 space-y-1">
                         <p>Or use these details:</p>

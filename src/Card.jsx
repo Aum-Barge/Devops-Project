@@ -111,14 +111,7 @@ const Card = () => {
                   className="card bg-base-100 shadow-xl hover:shadow-2xl border border-base-300 animate-slide-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <figure className="px-6 pt-6">
-                    <img
-                      src={campaign.image || "https://via.placeholder.com/400x250"}
-                      alt={campaign.title}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </figure>
-                  <div className="card-body">
+                  <div className="card-body pt-6">
                     <h3 className="card-title text-xl font-bold text-primary">{campaign.title}</h3>
                     <p className="text-base-content/70 line-clamp-3">{campaign.description}</p>
                     <div className="flex justify-between items-center mt-4">

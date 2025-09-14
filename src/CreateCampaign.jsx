@@ -245,8 +245,10 @@ const CreateCampaign = () => {
               />
               {errors.image && <span className="text-error text-sm mt-1">{errors.image}</span>}
               {imagePreview && (
-                <div className="mt-2">
-                  <img src={imagePreview} alt="Preview" className="w-full max-h-48 object-cover rounded-lg shadow-md" />
+                <div className="mt-2 p-4 bg-base-200 rounded-lg text-center">
+                  <div className="text-3xl mb-2">🖼️</div>
+                  <p className="text-sm text-base-content/70">Image uploaded successfully</p>
+                  <p className="text-xs text-base-content/50 mt-1">Preview not available</p>
                 </div>
               )}
             </div>
@@ -346,8 +348,10 @@ const CreateCampaign = () => {
             />
             {errors.gpayQr && <span className="text-error text-sm mt-1">{errors.gpayQr}</span>}
             {qrPreview && (
-              <div className="mt-2">
-                <img src={qrPreview} alt="QR Preview" className="w-32 h-32 object-contain rounded-lg shadow-md border" />
+              <div className="mt-2 p-4 bg-base-200 rounded-lg text-center">
+                <div className="text-2xl mb-2">📱</div>
+                <p className="text-sm text-base-content/70">QR Code uploaded successfully</p>
+                <p className="text-xs text-base-content/50 mt-1">Preview not available</p>
               </div>
             )}
           </div>

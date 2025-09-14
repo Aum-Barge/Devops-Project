@@ -61,7 +61,12 @@ const DonatePage = () => {
             {campaign.qrCode ? (
               <>
                 <p className="font-semibold">Scan & Pay via GPay:</p>
-                <img src={campaign.qrCode} alt="GPay QR Code" className="w-48 h-48 object-cover mt-2" />
+                <div className="w-48 h-48 bg-gray-200 rounded-lg mt-2 flex items-center justify-center mx-auto">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">📱</div>
+                    <p className="text-sm text-gray-600">QR Code</p>
+                  </div>
+                </div>
               </>
             ) : (
               <p className="text-red-500 font-semibold">No QR code available. Please donate via bank transfer.</p>

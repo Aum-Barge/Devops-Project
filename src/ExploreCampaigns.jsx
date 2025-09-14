@@ -101,24 +101,15 @@ const ExploreCampaigns = () => {
               key={campaign.id}
               className="card bg-base-100 shadow-xl hover:shadow-2xl border border-base-300 group animate-fade-in"
             >
-              <figure className="px-6 pt-6">
-                <div className="relative overflow-hidden rounded-lg">
-                  <img
-                    src={campaign.image || "https://via.placeholder.com/400x250"}
-                    alt={campaign.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 right-3">
-                    <span className="badge badge-secondary shadow-lg">
-                      {campaign.category}
-                    </span>
-                  </div>
-                </div>
-              </figure>
               <div className="card-body p-6">
-                <h2 className="card-title text-xl font-bold text-primary group-hover:text-primary-focus transition-colors line-clamp-2">
-                  {campaign.title}
-                </h2>
+                <div className="flex justify-between items-start mb-2">
+                  <h2 className="card-title text-xl font-bold text-primary group-hover:text-primary-focus transition-colors line-clamp-2 flex-1">
+                    {campaign.title}
+                  </h2>
+                  <span className="badge badge-secondary shadow-lg ml-2">
+                    {campaign.category}
+                  </span>
+                </div>
                 <p className="text-base-content/70 line-clamp-3 text-sm leading-relaxed">
                   {campaign.description}
                 </p>
