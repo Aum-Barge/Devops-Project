@@ -33,7 +33,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Crowdfund
+            Minifund
           </span>
         </Link>
       </div>

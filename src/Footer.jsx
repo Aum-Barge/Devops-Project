@@ -15,7 +15,7 @@ const Footer = () => {
                 </svg>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Crowdfund
+                Minifund
               </span>
             </div>
             <p className="text-base-content/70 text-sm leading-relaxed">
@@ -117,7 +117,7 @@ const Footer = () => {
 
         <div className="border-t border-base-300 mt-8 pt-8 text-center">
           <p className="text-base-content/60 text-sm">
-            © 2025 Crowdfund. Made with ❤️ for positive change.
+            © 2025 Minifund. Made with ❤️ for positive change.
           </p>
         </div>
       </div>
